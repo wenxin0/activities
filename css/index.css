@@ -1,0 +1,204 @@
+@charset "UTF-8";
+* {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+  position: relative;
+  text-decoration: none;
+}
+
+body {
+  font-family: "Helvetica Neue","微软雅黑",sans-serif;
+  background: #FFFFFF;
+}
+
+.todobox {
+  width: 414px;
+  height: 80px;
+  margin: 0 auto;
+  background: #00ADEE;
+}
+
+.todobox h2 {
+  height: 80px;
+  line-height: 80px;
+  text-align: center;
+  font-size: 24px;
+  font-weight: normal;
+  color: rgba(175, 47, 47, 0.15);
+  text-rendering: optimizeLegibility;
+  color: #FFFFFF;
+}
+
+.card {
+  width: 380px;
+  height: auto;
+  margin: 20px auto;
+}
+
+.card .header {
+  height: 40px;
+}
+
+.card .header input {
+  border: 1px dashed #00ADEE;
+  border-radius: 20px;
+  width: 100%;
+  height: 100%;
+  text-indent: 20px;
+  font-family: inherit;
+  font-weight: inherit;
+  outline: none;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.card .todos {
+  width: 380px;
+  height: auto;
+  margin: 20px auto;
+}
+
+.card .todos .row {
+  width: 100%;
+  height: 40px;
+  margin: 20px auto;
+  border-radius: 20px;
+  box-shadow: 5px 5px 8px #FAFAFA;
+}
+
+.card .todos .row .check {
+  float: left;
+  width: 40px;
+  height: 40px;
+  background: url(../img/1.png) no-repeat center center;
+  background-size: 20px 20px;
+  cursor: pointer;
+}
+
+.card .todos .row p {
+  width: 340px;
+  line-height: 40px;
+  float: left;
+  padding-left: 20px;
+  box-sizing: border-box;
+  font-size: 14px;
+  display: block;
+}
+
+.card .todos .row .delete {
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  right: 10px;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background: url(../img/ljt.png) no-repeat;
+  background-size: cover;
+  cursor: pointer;
+  display: none;
+}
+
+.card .todos .row input {
+  display: none;
+  width: 340px;
+  padding-left: 60px;
+  box-sizing: border-box;
+  height: 40px;
+  line-height: 40px;
+  outline: none;
+  border: none;
+  float: left;
+  font-size: 14px;
+}
+
+.card .todos .row:hover .delete {
+  display: block;
+}
+
+.card .todos .row.wancheng .check {
+  background: none;
+  margin: 10px;
+  width: 18px;
+  height: 18px;
+  border: 1px solid #ccc;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.card .todos .row.wancheng p {
+  color: #ccc;
+  text-decoration: line-through;
+}
+
+.card .todos .row.bianji .check, .card .todos .row.bianji .delete, .card .todos .row.bianji p {
+  display: none;
+}
+
+.card .todos .row.bianji p {
+  display: none;
+}
+
+.card .todos .row.bianji input {
+  display: block;
+}
+
+.foot {
+  height: 40px;
+  line-height: 40px;
+  text-align: center;
+}
+
+.foot .left {
+  margin-right: 20px;
+  width: 40px;
+  height: 40px;
+  background: #00ADEE;
+  border-radius: 50%;
+  color: #FFFFFF;
+}
+
+.foot span {
+  display: block;
+  width: 76px;
+  height: 40px;
+  line-height: 40px;
+  float: left;
+  text-align: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: #888;
+}
+
+.active {
+  background: #00ADEE;
+  border-radius: 4px;
+}
+
+.todos .row {
+  transition: all 0.8s ease;
+}
+
+.todos .row.ng-enter {
+  transform: translate3d(100%, -50px, 50px);
+  opacity: 0;
+}
+
+.todos .row.ng-enter-active {
+  transform: translate3d(0, 0, 0);
+  opacity: 1;
+}
+
+.todos .row.ng-leave {
+  height: 40px;
+  transform: translateX(200px);
+  opacity: 1;
+}
+
+.todos .row.ng-leave-active {
+  height: 0;
+  transform: translateX(0);
+  opacity: 0;
+  overflow: hidden;
+}

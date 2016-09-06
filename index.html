@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en" ng-app="ag">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=414">
+    <title>activities</title>
+    <link rel="stylesheet" href="css/index.css">
+    <script src="js/jquery.js"></script>
+    <script src="js/angular.js"></script>
+    <script src="js/angular-animate.js"></script>
+    <script src="js/my.js"></script>
+    <!--<script src="js/index.js"></script>-->
+</head>
+<body ng-controller="mainCtrl">
+  <div class="todobox">
+      <h2>ACTIVITIES</h2>
+  </div>
+<div class="card">
+        <div class="header">
+            <input type="text"
+                   ng-keyup="add($event);save()"
+                   ng-model="name"
+                   placeholder="what need to be done?">
+        </div>
+        <ul class="todos" ng-init="tiaojian=''">
+            <li ng-class="{bianji:aa,wancheng:v.isDone}"
+                ng-init="aa=false"
+                ng-dblclick="aa=true;focus($event)"
+                class="row"
+                ng-repeat="v in todos | filter:{isDone:tiaojian} track by v.id">
+                <div class="check"
+                     ng-click="v.isDone=!v.isDone;save()"></div>
+                <p>{{v.name}}</p>
+                <div ng-click="delete(v.id);save()"
+                     class="delete"></div>
+                <input ng-blur="aa=false" type="text"
+                       ng-model="v.name"
+                       ng-change="save()">
+            </li>
+        </ul>
+    <div class="foot">
+
+        <span class="left" ng-bind="(todos|filter:{isDone:tiaojian}).length"></span>
+
+        <span ng-class="{active:(tiaojian==='')}" ng-click="tiaojian='';setcount('quanbu')">All</span>
+        <span  ng-class="{active:(tiaojian===true)}" ng-click="tiaojian=true;setcount('wancheng')">Done</span>
+        <span  ng-class="{active:(tiaojian===false)}" ng-click="tiaojian=false;setcount('weiwan')">Active</span>
+
+        <span class="right" ng-click="clear();save()">clear</span>
+    </div>
+</div>
+</body>
+</html>
